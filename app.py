@@ -121,7 +121,7 @@ with tab3:
     ssr_best = np.sum((y_raw - (calc_slope * X_raw + calc_intercept))**2)
 
     st.markdown("---")
-    st.markdown("#### 🕹️ 第二步：動態互動探索（可以拉動滑桿，或點擊下方按鈕進行 0.01 微調）")
+    st.markdown("#### 🕹️ 第二步：動態互動探索（可以拉動滑桿，或點擊下方按鈕進行微調）")
     
     # 建立精確限制邊界
     min_a, max_a = float(calc_slope - 4.0), float(calc_slope + 4.0)
