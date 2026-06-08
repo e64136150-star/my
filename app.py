@@ -30,7 +30,7 @@ with tab1:
     st.markdown('<div class="big-center-text">在科學實驗、經濟預測或機器學習中，我們常常會收集到一堆觀測數據點。<br>這些點因為測量誤差或隨機干擾，往往不會乖乖地排成一條完美的直線。<br><b>最小平方法（Method of Least Squares）</b> 的目標，就是找到一條「最能代表這群數據趨勢」的直線或最佳擬合曲線。</div>', unsafe_allow_html=True)
     
     st.markdown('<div class="title-center-text">📐 為什麼叫「最小平方」？</div>', unsafe_allow_html=True)
-    st.markdown('<div class="big-center-text">1. <b>殘差 (Residual)</b>：每個真實數據點的 y 值，跟我們預測線上的 y 值，中間的「垂直距離」就叫做殘差。<br>2. <b>消去正負號</b>：誤差有正有負，直接相加會互相抵消。為了解決這個問題，我們把每個誤差都拿去<b>平方</b>。<br>3. <b>目標</b>：找出一個參數，使得<b>所有點的誤差平方和（SSR）達到最小</b>。</div>', unsafe_allow_html=True)
+    st.markdown('<div class="big-center-text">1. <b>殘差 (Residual)</b>：每個真實數據點的 y 值，跟我們預測線上的 y 值，中間的「垂直距離}」就叫做殘差。<br>2. <b>消去正負號</b>：誤差有正有負，直接相加會互相抵消。為了解決這個問題，我們把每個誤差都拿去<b>平方</b>。<br>3. <b>目標</b>：找出一個參數，使得<b>所有點的誤差平方和（SSR）達到最小</b>。</div>', unsafe_allow_html=True)
 
     st.markdown("<br><hr><br>", unsafe_allow_html=True)
     
@@ -61,11 +61,13 @@ with tab1:
 
 
 # ==========================================
-# 分頁 2：應用場景
+# 分頁 2：應用場景 (精準修正文字顏色 🎨)
 # ==========================================
 with tab2:
     st.header("🚀 最小平方法可以應用在哪裡？")
-    st.caption("最小平方法是現代機器學習（線性回歸）與數據分析的基石，以下是幾個經典的跨領域應用：")
+    
+    # 🌟 用 HTML 將該行文字強制指定為純黑色 (color: #000000)，取代原本灰色的 st.caption
+    st.markdown('<p style="color: #000000; font-size: 16px; margin-bottom: 15px;">最小平方法是現代機器學習（線性回歸）與數據分析的基石，以下是幾個經典的跨領域應用：</p>', unsafe_allow_html=True)
     
     col2_1, col2_2, col2_3 = st.columns(3)
     with col2_1:
@@ -89,7 +91,7 @@ with tab2:
 
 
 # ==========================================
-# 分頁 3：動態數據模擬 (視覺特效強化版 🎯)
+# 分頁 3：動態數據模擬
 # ==========================================
 with tab3:
     st.header("📊 核心技術展示：幾何與誤差地形聯動模擬器")
@@ -172,7 +174,7 @@ with tab3:
     graph_col1, graph_col2 = st.columns(2)
     
     with graph_col1:
-        st.subheader("📈 2D 直觀數據擬合（手動調整線 vs 最佳回歸線）")
+        st.subheader("📈 2D 數據最佳回歸線")
         
         fig = go.Figure()
         fig.add_trace(go.Scatter(x=X_raw, y=y_raw, mode='markers', name='原始數據點', marker=dict(color='#00CC96', size=10)))
@@ -259,7 +261,7 @@ with tab3:
 
     # 底下矩陣算式
     st.markdown("---")
-    st.markdown("### 📝 後台線性代數運算詳細變換步驟 (Matric Calculation Logs)")
+    st.markdown("### 📝 線性代數運算詳細變換步驟 (Matric Calculation Logs)")
     calc_col1, calc_col2 = st.columns(2)
     with calc_col1:
         st.markdown("**1. 建立設計矩陣 $X$ 與目標向量 $\\mathbf{y}$（展示前3筆）**")
@@ -271,7 +273,7 @@ with tab3:
         st.latex(rf"(X^T X)^{{-1}} = \begin{{pmatrix}} {XT_X_inv[0,0]:.4f} & {XT_X_inv[0,1]:.4f} \\ {XT_X_inv[0,1]:.4f} & {XT_X_inv[1,1]:.4f} \end{{pmatrix}}")
         st.markdown("**4. 求解參數向量 $\\beta$**")
         st.latex(rf"\beta = (X^T X)^{{-1}} X^T \mathbf{{y}} = \begin{{pmatrix}} {calc_slope:.4f} \\ {calc_intercept:.4f} \end{{pmatrix}}")
-        st.success(f"🎉 運算成功！精準提取最佳參數解： 斜率 a = {calc_slope:.2f} ｜ 截距 b = {calc_intercept:.2f}")
+        st.success(f"🎉 最佳參數解： 斜率 a = {calc_slope:.2f} ｜ 截距 b = {calc_intercept:.2f}")
 
 # ==========================================
 # 分頁 4：習題演練
