@@ -271,7 +271,7 @@ with tab3:
         st.latex(rf"(X^T X)^{{-1}} = \begin{{pmatrix}} {XT_X_inv[0,0]:.4f} & {XT_X_inv[0,1]:.4f} \\ {XT_X_inv[0,1]:.4f} & {XT_X_inv[1,1]:.4f} \end{{pmatrix}}")
         st.markdown("**4. 求解參數向量 $\\beta$**")
         st.latex(rf"\beta = (X^T X)^{{-1}} X^T \mathbf{{y}} = \begin{{pmatrix}} {calc_slope:.4f} \\ {calc_intercept:.4f} \end{{pmatrix}}")
-        st.success(f"🎉 運算成功！精準提取最佳參數解： 斜率 (a) = {calc_slope:.2f} ｜ 截距 (b) = {calc_intercept:.2f}")
+        st.success(f"🎉 運算成功！精準提取最佳參數解： 斜率 a = {calc_slope:.2f} ｜ 截距 b = {calc_intercept:.2f}")
 
 # ==========================================
 # 分頁 4：習題演練
